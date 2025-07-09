@@ -1,21 +1,16 @@
-import { properties } from '@/http/controllers/properties/route';
+import type { PropertiesRepository } from '@/database/repositories/properties';
 import type { Property } from '../entities/property';
-
-export type CreatePropertyUseCaseRequest = {
-	name: string;
-	totalValue: number;
-	numberOfRooms: number;
-	city: string;
-	state: string;
-	size: string;
-};
 
 type SearchPropertyUseCaseResponse = {
 	properties: Property[];
 };
 
 export class SearchPropertyUseCase {
-	execute(): SearchPropertyUseCaseResponse {
+	constructor(private repository: PropertiesRepository) {}
+
+	async execute(): Promise<SearchPropertyUseCaseResponse> {
+		const properties = await this.repository.find();
+
 		return { properties };
 	}
 }

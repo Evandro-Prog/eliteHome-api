@@ -1,4 +1,5 @@
 import type { FastifyReply, FastifyRequest } from 'fastify';
+import { PropertiesRepository } from '@/database/repositories/properties';
 import {
 	CreatePropertyUseCase,
 	type CreatePropertyUseCaseRequest,
@@ -6,7 +7,9 @@ import {
 
 export async function create(_request: FastifyRequest, reply: FastifyReply) {
 	//TODO validar dados create das properties
-	const useCase = new CreatePropertyUseCase();
+	const repository = new PropertiesRepository();
+	const useCase = new CreatePropertyUseCase(repository);
+
 	const response = await useCase.execute(
 		_request.body as CreatePropertyUseCaseRequest,
 	);
