@@ -2,46 +2,69 @@ type PropertyProps = {
 	id?: string;
 	name: string;
 	totalValue: number;
+	rentValue: number;
+	condoValue: number;
+	taxValue: number;
+	numberOfBathrooms: number;
+	parkingSlots: number;
+	arePetsAllowed: boolean;
+	isNextToSubway: boolean;
+	isActive: boolean;
 	numberOfRooms: number;
-	city: string;
-	state: string;
 	size: number;
+	description: string;
+	forRent: boolean;
+	forSale: boolean;
+	address: string;
+	latitude: number;
+	longitude: number;
 	created_at?: Date;
 	updated_at?: Date;
 };
-
-// TODO definir todos os atributos da entidade Property
-
 export class Property {
 	public id?: string;
 	public name: string;
 	public totalValue: number;
+	public rentValue: number;
+	public condoValue: number;
+	public taxValue: number;
+	public numberOfBathrooms: number;
+	public parkingSlots: number;
+	public arePetsAllowed: boolean;
+	public isNextToSubway: boolean;
+	public isActive: boolean;
 	public numberOfRooms: number;
-	public city: string;
-	public state: string;
 	public size: number;
+	public description: string;
+	public forRent: boolean;
+	public forSale: boolean;
+	public address: string;
+	public latitude: number;
+	public longitude: number;
 	public created_at?: Date;
 	public updated_at?: Date;
 
-	constructor({
-		id,
-		name,
-		totalValue,
-		numberOfRooms,
-		city,
-		state,
-		size,
-		created_at,
-		updated_at,
-	}: PropertyProps) {
-		this.id = id;
-		this.name = name;
-		this.totalValue = totalValue;
-		this.numberOfRooms = numberOfRooms;
-		this.city = city;
-		this.state = state;
-		this.size = size;
-		this.created_at = created_at;
-		this.updated_at = updated_at;
+	constructor(props: PropertyProps) {
+		this.id = props.id;
+		this.name = props.name;
+		this.totalValue = props.totalValue;
+		this.rentValue = props.rentValue;
+		this.condoValue = props.condoValue;
+		this.taxValue = props.taxValue;
+		this.numberOfBathrooms = props.numberOfBathrooms;
+		this.parkingSlots = props.parkingSlots;
+		this.arePetsAllowed = props.arePetsAllowed;
+		this.isNextToSubway = props.isNextToSubway;
+		this.isActive = props.isActive;
+		this.numberOfRooms = props.numberOfRooms;
+		this.size = props.size;
+		this.description = props.description;
+		this.forRent = props.forRent;
+		this.forSale = props.forSale;
+		this.address = props.address;
+		this.latitude = props.latitude;
+		this.longitude = props.longitude;
+		this.created_at = props.created_at;
+		this.updated_at = props.updated_at;
 	}
 }

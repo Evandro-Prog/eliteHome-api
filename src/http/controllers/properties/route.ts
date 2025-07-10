@@ -6,6 +6,6 @@ import { search } from './search';
 export const properties: Property[] = [];
 
 export async function propertiesRoutes(app: FastifyInstance) {
-	app.post('/properties', create);
-	app.get('/properties', search);
+	app.post('/manager/properties', create);
+	app.get('/manager/properties', search);
 }
