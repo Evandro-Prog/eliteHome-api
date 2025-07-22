@@ -20,6 +20,7 @@ type PropertySchemaProps = {
 	address: string;
 	latitude: number;
 	longitude: number;
+	is_furnished: boolean;
 	created_at?: Date;
 	updated_at?: Date;
 };
@@ -44,6 +45,7 @@ export class PropertySchema {
 	public address: string;
 	public latitude: number;
 	public longitude: number;
+	public is_furnished: boolean;
 	public created_at?: Date;
 	public updated_at?: Date;
 
@@ -67,6 +69,7 @@ export class PropertySchema {
 		this.address = props.address;
 		this.latitude = props.latitude;
 		this.longitude = props.longitude;
+		this.is_furnished = props.is_furnished;
 		this.created_at = props.created_at;
 		this.updated_at = props.updated_at;
 	}
@@ -92,6 +95,7 @@ export class PropertySchema {
 			address: this.address,
 			latitude: this.latitude,
 			longitude: this.longitude,
+			isFurnished: this.is_furnished,
 			created_at: this.created_at ? new Date(this.created_at) : undefined,
 			updated_at: this.updated_at ? new Date(this.updated_at) : undefined,
 		});

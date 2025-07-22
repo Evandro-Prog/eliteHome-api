@@ -1,18 +1,25 @@
 import fastify from 'fastify';
 import { ZodError } from 'zod';
+import { AppError } from '@/errors/app-error';
 import { baseRoutes } from './controllers/base/route';
 import { propertiesRoutes } from './controllers/properties/route';
+import { visitsRoutes } from './controllers/visits/route';
 
 export const app = fastify();
 
 app.register(baseRoutes);
 app.register(propertiesRoutes);
+app.register(visitsRoutes);
 
 app.setErrorHandler((error, _request, reply) => {
 	if (error instanceof ZodError) {
 		return reply
 			.status(400)
 			.send({ message: 'Validation error.', issues: error.format() });
+	}
+
+	if (error instanceof AppError) {
+		return reply.status(error.statusCode).send({ message: error.message });
 	}
 
 	console.error(error);

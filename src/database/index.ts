@@ -1,8 +1,9 @@
 import knexConfig from 'knex';
+import { envs } from '@/config/envs';
 
 export const knex = knexConfig({
 	client: 'pg',
-	connection: 'postgres://eliteApi:060919@localhost:5432/eliteHomeApi',
+	connection: envs.POSTGRES_CONNECTION_STRING,
 	pool: {
 		min: 2,
 		max: 10,

@@ -1,9 +1,10 @@
 import path from 'node:path';
 import type { Knex } from 'knex';
+import { envs } from './src/config/envs';
 
 const config: Knex.Config = {
 	client: 'postgresql',
-	connection: 'postgres://eliteApi:060919@localhost:5432/eliteHomeApi',
+	connection: envs.POSTGRES_CONNECTION_STRING,
 	pool: {
 		min: 2,
 		max: 10,
